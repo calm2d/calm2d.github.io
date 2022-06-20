@@ -1,1 +1,134 @@
-CALM
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#0C3784">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>CALM - Canvas And Lisp Magic</title>
+    <link rel="stylesheet" type="text/css" href="w3c-oldstyle-modified.css">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/xcode.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/lisp.min.js"></script>
+    <style>
+     @media screen and (max-width: 1280px) {
+         .hide-on-small-screen {
+             display: none;
+         }
+     }
+     .inline-block {
+         display: inline-block;
+     }
+    </style>
+  </head>
+  <body>
+    <h1>CALM - Canvas And Lisp Magic</h1>
+    <div>
+      <div class="inline-block">
+        <a title="Random Piet Mondrian" href="https://github.com/calm2d/calm/tree/main/src/gallery/mondrian">
+          <img alt="Random Piet Mondrian" style="height:32rem; margin-top:1rem;" src="calm.png" />
+        </a>
+      </div>
+      <div class="inline-block">
+        <pre class="hide-on-small-screen"><code style="width: 33rem; height: 32rem;" class="language-lisp">
+(in-package #:calm)
+
+;; white, red, yellow, blue
+(defparameter *mondrian-color-list* '((0.93 0.92 0.94) (0.89 0.12 0.17) (0.94 0.87 0.47) (0 0.35 0.59)))
+
+(defun draw-rect (x y w h &optional color)
+  (c:set-source-rgb 0 0 0)
+  (c:rectangle x y w h)
+  (c:stroke-preserve)
+  (apply #'c:set-source-rgb (nth (if color (1+ (random 3)) 0) *mondrian-color-list*))
+  (c:fill-path))
+
+(defun draw ()
+  (c:set-line-width 20)
+  (loop with x = 0
+        for width = (+ 42 (random 300))
+        until (> x *calm-width*)
+        do (loop with y = 0
+                 for height = (+ 42 (random 300))
+                 until (> y *calm-height*)
+                 do (draw-rect x y width height (= (random 3) 0))
+                 do (incf y height))
+        do (incf x width)))
+        </code></pre>
+      </div>
+    </div>
+
+    <section>
+      <h2>Latest Downloads</h2>
+      <p>
+        <a href="https://github.com/calm2d/calm/releases/download/v0.0.12/calm-lnx.7z">Linux</a>
+        <a href="https://github.com/calm2d/calm/releases/download/v0.0.12/calm-mac.7z">macOS</a>
+        <a href="https://github.com/calm2d/calm/releases/download/v0.0.12/calm-win.7z">Windows</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Quick Start Guide</h2>
+
+      <p>Extract what you have downloaded,
+        add the folder <code>calm</code> into your <code>PATH</code> variable.</p>
+
+
+      <pre><code class="language-bash">
+export PATH="~/Downloads/calm/:$PATH"
+cd ~/Downloads/calm/gallery/mondrian/
+calm
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Your First Drawing</h2>
+
+      Create a folder <code>my-gallery</code>, inside the folder, create a file <code>canvas.lisp</code> with the following code:
+
+      <pre><code class="language-lisp">
+(in-package #:calm)
+
+(swank:create-server :port 4242)
+
+(defun draw ()
+  (c:move-to 120 200)
+  (c:set-font-size 42)
+  (c:set-source-rgb 0.047 0.21 0.51)
+  (c:select-font-face "cursive" :normal :bold)
+  (c:show-text "Oh, impermanent."))
+      </code></pre>
+
+      Inside your shell, change to the folder, and execute <code>calm</code>:
+
+      <pre><code class="language-bash">
+cd my-gallery
+calm
+      </code></pre>
+
+      You should have what you expected.
+    </section>
+
+    <section>
+      <h2>Further More</h2>
+
+      <p>
+      Where did all these magic spells like <code>(c:set-...)</code> come from?
+        <br>
+        <br>
+      Before the documentation is finished, please refer to
+
+        <a href="https://www.cliki.net/cl-cairo2">cl-cairo2</a>
+
+      and
+
+        <a href="https://cairographics.org/">Cairo</a>.
+      </p>
+    </section>
+
+    <script>hljs.highlightAll();</script>
+  </body>
+
+</html>
