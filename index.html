@@ -21,15 +21,40 @@
      .inline-block {
          display: inline-block;
      }
+     nav > ul {
+         width: 32rem;
+         border-bottom-width: 1px;
+         border-style: dashed;
+         padding: 10px 0;
+     }
+     nav > ul > li {
+         list-style-type: none;
+         display: inline;
+     }
+     footer {
+         border-width: 1px 0 0 0;
+         border-style: dashed;
+         margin: 4rem 0 0 0;
+     }
     </style>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="https://github.com/calm2d">Github</a></li>
+      </ul>
+    </nav>
+    <a class="hide-on-small-screen" href="/" title="CALM">
+      <img alt="CALM Logo - the meditator" style="height:5rem;float:right;" src="calm.png"/>
+    </a>
     <h1>CALM - Canvas And Lisp Magic</h1>
-    <a style="float:right" href="https://github.com/calm2d/calm">Github</a>
     <div>
       <div class="inline-block">
         <a title="Random Piet Mondrian" href="https://github.com/calm2d/calm/tree/main/src/gallery/mondrian">
-          <img alt="Random Piet Mondrian" style="height:32rem; margin-top:1rem;" src="calm.png" />
+          <img alt="Random Piet Mondrian" style="height:32rem; margin-top:1rem;" src="mondrian.png" />
         </a>
       </div>
       <div class="inline-block">
@@ -62,7 +87,7 @@
     </div>
 
     <section>
-      <h2>Latest Downloads</h2>
+      <h2>Latest Downloads (v0.0.13 / 20 Jun 2022)</h2> 
       <p>
         <a href="https://github.com/calm2d/calm/releases/download/v0.0.13/calm-lnx.7z">Linux</a>
         <a href="https://github.com/calm2d/calm/releases/download/v0.0.13/calm-mac.7z">macOS</a>
@@ -116,19 +141,29 @@ calm
       <h2>Further More</h2>
 
       <p>
-      Where did all these magic spells like <code>(c:set-...)</code> come from?
+        Where did all these magic spells like <code>(c:set-...)</code> come from?
         <br>
         <br>
-      Before the documentation is finished, please refer to
+        Before the documentation is finished, please refer to
 
         <a href="https://www.cliki.net/cl-cairo2">cl-cairo2</a>
 
-      and
+        and
 
         <a href="https://cairographics.org/">Cairo</a>.
       </p>
     </section>
+    
+    <footer>
+      <p>
+        The content of this site is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a>.
+      </p>
 
+      <p>CALM is <a href="https://www.fsf.org/licensing/essays/free-sw.html">free software</a> and is available to be redistributed and/or modified under the terms of the <a href="http://mozilla.org/MPL/2.0/">Mozilla Public License (MPL)</a>. </p>
+
+      <p style="float:right;">Last edited: 21 Jun 2022</p>
+    </footer>
+    
     <script>hljs.highlightAll();</script>
   </body>
 
