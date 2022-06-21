@@ -13,10 +13,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/lisp.min.js"></script>
     <style>
-     @media screen and (max-width: 1280px) {
-         .hide-on-small-screen {
-             display: none;
-         }
+     .head-img {
+         height:32rem;
+         margin-top:1rem;
      }
      .inline-block {
          display: inline-block;
@@ -36,6 +35,18 @@
          border-style: dashed;
          margin: 4rem 0 0 0;
      }
+     @media screen and (max-width: 1280px) {
+         .hide-on-small-screen {
+             display: none;
+         }
+         .head-img {
+             width: 100%;
+             height: auto;
+         }
+         nav > ul {
+             width: 90%;
+         }
+     }
     </style>
   </head>
   <body>
@@ -54,7 +65,7 @@
     <div>
       <div class="inline-block">
         <a title="Random Piet Mondrian" href="https://github.com/calm2d/calm/tree/main/src/gallery/mondrian">
-          <img alt="Random Piet Mondrian" style="height:32rem; margin-top:1rem;" src="mondrian.png" />
+          <img alt="Random Piet Mondrian" class="head-img" src="mondrian.png" />
         </a>
       </div>
       <div class="inline-block">
@@ -87,7 +98,7 @@
     </div>
 
     <section>
-      <h2>Latest Downloads (v0.0.13 / 20 Jun 2022)</h2> 
+      <h2>Latest Downloads (v0.0.13 / 20 Jun 2022)</h2>
       <p>
         <a href="https://github.com/calm2d/calm/releases/download/v0.0.13/calm-lnx.7z">Linux</a>
         <a href="https://github.com/calm2d/calm/releases/download/v0.0.13/calm-mac.7z">macOS</a>
@@ -153,7 +164,7 @@ calm
         <a href="https://cairographics.org/">Cairo</a>.
       </p>
     </section>
-    
+
     <footer>
       <p>
         The content of this site is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a>.
@@ -163,7 +174,7 @@ calm
 
       <p style="float:right;">Last edited: 21 Jun 2022</p>
     </footer>
-    
+
     <script>hljs.highlightAll();</script>
   </body>
 
