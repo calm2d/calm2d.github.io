@@ -7,68 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png"/>
     <title>CALM - Canvas And Lisp Magic</title>
-    <link rel="stylesheet" type="text/css" href="w3c-oldstyle-modified.css">
+    <link rel="stylesheet" type="text/css" href="/w3c-oldstyle-modified.css">
+    <link rel="stylesheet" type="text/css" href="/calm.css">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/xcode.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/lisp.min.js"></script>
-    <style>
-     .head-img {
-         height:32rem;
-         margin-top:1rem;
-     }
-     .inline-block {
-         display: inline-block;
-     }
-     nav > ul {
-         width: 32rem;
-         border-bottom-width: 1px;
-         border-style: dashed;
-         padding: 10px 0;
-     }
-     nav > ul > li {
-         list-style-type: none;
-         display: inline;
-     }
-     .releases {
-         margin: 3rem 0;
-     }
-     .releases a{
-         padding: 1rem;
-         border-width: 1px;
-         border-style: groove;
-         margin-right: 1rem;
-     }
-     footer {
-         border-width: 1px 0 0 0;
-         border-style: dashed;
-         margin: 4rem 0 0 0;
-     }
-     @media screen and (max-width: 1280px) {
-         .hide-on-small-screen {
-             display: none;
-         }
-         .head-img {
-             width: 100%;
-             height: auto;
-         }
-         nav > ul {
-             width: 90%;
-         }
-     }
-    </style>
   </head>
   <body>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a title="OPEN SOON">Recipes</a></li>
-        <li><a title="OPEN SOON">Gallery</a></li>
+        <li><a href="/guide">Guide</a></li>
+        <li><a href="https://github.com/calm2d/calm/tree/main/src/gallery/">Gallery</a></li>
         <li><a href="https://github.com/calm2d">Github</a></li>
       </ul>
     </nav>
     <a class="hide-on-small-screen" href="/" title="CALM">
-      <img alt="CALM Logo - the meditator" style="height:5rem;float:right;" src="calm.png"/>
+      <img alt="CALM Logo - the meditator" style="height:5rem;float:right;" src="/calm.png"/>
     </a>
     <h1>CALM - Canvas And Lisp Magic</h1>
     <div>
@@ -131,7 +87,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="releases">
       <h2>Latest Releases (v0.0.13 / 20 Jun 2022)</h2>
       <p class="releases">
         <a href="https://github.com/calm2d/calm/releases/download/v0.0.13/calm-lnx.7z">Linux</a>
@@ -141,63 +97,13 @@
     </section>
 
     <section>
-      <h2>Quick Start</h2>
-
-      <p>Extract what you have downloaded,
-        add the folder <code>calm</code> into your <code>PATH</code> variable.</p>
-
-
-      <pre><code class="language-bash">
-export PATH="~/Downloads/calm/:$PATH"
-cd ~/Downloads/calm/gallery/mondrian/
-calm
-      </code></pre>
-    </section>
-
-    <section>
-      <h2>First Drawing</h2>
-
-      Create a folder <code>my-first-drawing</code>, inside the folder, create a file <code>canvas.lisp</code> with the following code:
-
-      <pre><code class="language-lisp">
-(in-package #:calm)
-
-(swank:create-server :port 4242)
-
-(defun draw ()
-  (c:move-to 120 200)
-  (c:set-font-size 42)
-  (c:set-source-rgb 0.047 0.21 0.51)
-  (c:select-font-face "cursive" :normal :bold)
-  (c:show-text "Oh, impermanent."))
-      </code></pre>
-
-      Inside your shell, change to the folder, and execute <code>calm</code>:
-
-      <pre><code class="language-bash">
-cd my-first-drawing
-calm
-      </code></pre>
-
-      You should have what you expected.
-    </section>
-
-    <section>
-      <h2>Further More</h2>
-
-      <p>
-        Where did all these magic spells like <code>(c:set-...)</code> come from?
-        <br>
-        <br>
-        Please refer to
-
-        <a href="https://www.cliki.net/cl-cairo2">cl-cairo2</a>
-
-        and
-
-        <a href="https://cairographics.org/">Cairo</a> before the documentation were published.
+      <h2>What's Next?</h2>
+      <p class="next">
+        <a href="/guide">Read the Guide</a> or <a href="https://github.com/calm2d/calm/tree/main/src/gallery/">Browse the Gallery</a>
       </p>
     </section>
+
+
 
     <footer>
       <p>

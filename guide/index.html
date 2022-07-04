@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#0C3784">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>CALM - Canvas And Lisp Magic - Guide</title>
+    <link rel="stylesheet" type="text/css" href="/w3c-oldstyle-modified.css">
+    <link rel="stylesheet" type="text/css" href="/calm.css">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/xcode.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/lisp.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/guide">Guide</a></li>
+        <li><a href="https://github.com/calm2d/calm/tree/main/src/gallery/">Gallery</a></li>
+        <li><a href="https://github.com/calm2d">Github</a></li>
+      </ul>
+    </nav>
+    <a class="hide-on-small-screen" href="/" title="CALM">
+      <img alt="CALM Logo - the meditator" style="height:5rem;float:right;" src="/calm.png"/>
+    </a>
+    <h1>CALM - Canvas And Lisp Magic - Guide</h1>
+
+    <section>
+      <h2>Brief</h2>
+
+      <p>
+        This guide will lead you to write a simple application with CALM.
+      </p>
+    </section>
+
+    <section>
+      <h2>Download & Decompress</h2>
+
+      <p>If you haven't downloaded CALM, go to <a href="https://calm2d.org/#releases">CALM - Latest Releases</a> to get your copy. Currently supported Operating Systems are: Linux, macOS and Windows.</p>
+
+      <p>After downloading, you will get an archive file compressed in <a href="https://www.7-zip.org/">7-zip format</a> and you need to decompress it.
+      </p>
+      
+      <p>We are not going to describe the steps to decompress a 7-zip archive, since you must be brilliant enough to do that.</p>
+
+      <p>After decompressing, you will get a directory named <code>calm</code> with the following contents in it:</p>
+
+      <pre><code class="language-bash">
+
+`-- calm
+    |-- calm # calm.exe on Windows
+    |-- calm-bin # does not exist on Windows
+    |-- core.lisp
+    |-- gallery
+    |   |-- fan
+    |   |   |-- canvas.lisp
+    |   |   `-- ...
+    |   |-- meditator
+    |   |   |-- canvas.lisp
+    |   |   `-- ...
+    |   `-- ...
+    `-- ...
+      </code></pre>
+
+    </section>
+
+    <section>
+            <p>
+        add the folder <code>calm</code> into your <code>PATH</code> variable.</p>
+
+
+            <pre><code class="language-bash">
+export PATH="~/Downloads/calm/:$PATH"
+cd ~/Downloads/calm/gallery/mondrian/
+calm
+      </code></pre>
+      <h2>First Drawing</h2>
+
+      Create a folder <code>my-first-drawing</code>, inside the folder, create a file <code>canvas.lisp</code> with the following code:
+
+      <pre><code class="language-lisp">
+(in-package #:calm)
+
+(swank:create-server :port 4242)
+
+(defun draw ()
+  (c:move-to 120 200)
+  (c:set-font-size 42)
+  (c:set-source-rgb 0.047 0.21 0.51)
+  (c:select-font-face "cursive" :normal :bold)
+  (c:show-text "Oh, impermanent."))
+      </code></pre>
+
+      Inside your shell, change to the folder, and execute <code>calm</code>:
+
+      <pre><code class="language-bash">
+cd my-first-drawing
+calm
+      </code></pre>
+
+      You should have what you expected.
+    </section>
+
+    <section>
+      <h2>Further More</h2>
+
+      <p>
+        Where did all these magic spells like <code>(c:set-...)</code> come from?
+        <br>
+        <br>
+        Please refer to
+
+        <a href="https://www.cliki.net/cl-cairo2">cl-cairo2</a>
+
+        and
+
+        <a href="https://cairographics.org/">Cairo</a> before the documentation were published.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        The content of this site is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a>.
+      </p>
+
+      <p>CALM is <a href="https://www.fsf.org/licensing/essays/free-sw.html">free software</a> and is available to be redistributed and/or modified under the terms of the <a href="http://mozilla.org/MPL/2.0/">Mozilla Public License (MPL)</a>. </p>
+
+      <p style="float:right;">Last edited: 04 Jul 2022</p>
+    </footer>
+
+    <script>hljs.highlightAll();</script>
+  </body>
+
+</html>
