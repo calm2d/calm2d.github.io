@@ -39,52 +39,56 @@
     <section>
       <h2>Download & Decompress</h2>
 
-      <p>If you haven't downloaded CALM, go to <a href="https://calm2d.org/#releases">CALM - Latest Releases</a> to get your copy. Currently supported Operating Systems are: Linux, macOS and Windows.</p>
+      <p>If you haven't downloaded CALM, go to <a href="https://calm2d.org/#releases">CALM - Latest Releases</a> to get your copy.</p>
 
-      <p>After downloading, you will get an archive file compressed in <a href="https://www.7-zip.org/">7-zip format</a> and you need to decompress it.
-      </p>
-      
-      <p>We are not going to describe the steps to decompress a 7-zip archive, since you must be brilliant enough to do that.</p>
+      <p>CALM is provided as an <a  href="https://www.7-zip.org/">7-Zip</a> archive file, you need to decompress it.</p>
 
-      <p>After decompressing, you will get a directory named <code>calm</code> with the following contents in it:</p>
+      <p>After decompressing, you will get a directory named <code>calm</code> with the following contents:</p>
 
       <pre><code class="language-bash">
 
 `-- calm
-    |-- calm # calm.exe on Windows
-    |-- calm-bin # does not exist on Windows
-    |-- core.lisp
-    |-- gallery
+    |-- calm # the entry point (calm.exe on Windows)
+    |-- calm-bin # the actual image for macOS / Linux only
+    |-- core.lisp # the main source code of CALM
+    |-- gallery # some built-in examples
     |   |-- fan
-    |   |   |-- canvas.lisp
+    |   |   |-- canvas.lisp # the entry point for any CALM app
     |   |   `-- ...
     |   |-- meditator
-    |   |   |-- canvas.lisp
+    |   |   |-- canvas.lisp # the entry point for any CALM app
     |   |   `-- ...
     |   `-- ...
     `-- ...
       </code></pre>
 
-    </section>
-
-    <section>
-            <p>
+      <p>
         add the folder <code>calm</code> into your <code>PATH</code> variable.</p>
 
 
-            <pre><code class="language-bash">
+      <pre><code class="language-bash">
 export PATH="~/Downloads/calm/:$PATH"
+      </code></pre>
+
+      Test your settings:
+
+      <pre><code class="language-bash">
 cd ~/Downloads/calm/gallery/mondrian/
 calm
       </code></pre>
-      <h2>First Drawing</h2>
 
-      Create a folder <code>my-first-drawing</code>, inside the folder, create a file <code>canvas.lisp</code> with the following code:
+      If every thing works well, you may get a similar drawing like <a href="/mondrian.png">picture in the front page</a>.
+
+    </section>
+
+
+    <section>
+      <h2>First App</h2>
+
+      Create a folder <code>my-first-app</code>, inside the folder, create a file <code>canvas.lisp</code> with the following code:
 
       <pre><code class="language-lisp">
 (in-package #:calm)
-
-(swank:create-server :port 4242)
 
 (defun draw ()
   (c:move-to 120 200)
@@ -97,7 +101,7 @@ calm
       Inside your shell, change to the folder, and execute <code>calm</code>:
 
       <pre><code class="language-bash">
-cd my-first-drawing
+cd my-first-app
 calm
       </code></pre>
 
@@ -108,17 +112,18 @@ calm
       <h2>Further More</h2>
 
       <p>
-        Where did all these magic spells like <code>(c:set-...)</code> come from?
+        Where did all these magic spells like <code>(c:???-???)</code> come from?
         <br>
         <br>
         Please refer to
 
-        <a href="https://www.cliki.net/cl-cairo2">cl-cairo2</a>
-
+        <a href="https://www.cliki.net/cl-cairo2">cl-cairo2</a> / <a href="https://cairographics.org/">Cairo Documentation</a>
         and
-
-        <a href="https://cairographics.org/">Cairo</a> before the documentation were published.
+        <a href="https://github.com/lispgames/cl-sdl2">cl-sdl2</a> / <a href="https://wiki.libsdl.org/">SDL Wiki</a>
+        before more documentation were compiled.
       </p>
+
+      <p>Anything you can do with Cairo and SDL, you can do it with CALM - in Lisp.</p>
     </section>
 
     <footer>
@@ -128,7 +133,7 @@ calm
 
       <p>CALM is <a href="https://www.fsf.org/licensing/essays/free-sw.html">free software</a> and is available to be redistributed and/or modified under the terms of the <a href="http://mozilla.org/MPL/2.0/">Mozilla Public License (MPL)</a>. </p>
 
-      <p style="float:right;">Last edited: 04 Jul 2022</p>
+      <p style="float:right;">&copy; 2022 calm2d.org</p>
     </footer>
 
     <script>hljs.highlightAll();</script>
