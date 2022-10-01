@@ -15,107 +15,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/lisp.min.js"></script>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/guide">Guide</a></li>
-        <li><a href="https://github.com/calm2d/calm/tree/main/src/gallery/">Gallery</a></li>
-        <li><a href="https://github.com/calm2d/calm">Github</a></li>
-      </ul>
-    </nav>
-    <a class="hide-on-small-screen" href="/" title="CALM">
-      <img alt="CALM Logo - the meditator" style="height:5rem;float:right;" src="/calm.png"/>
-    </a>
-    <h1>CALM - Canvas And Lisp Magic</h1>
-    <div>
-      <div class="inline-block">
-        <a title="Random Piet Mondrian" href="https://github.com/calm2d/calm/tree/main/src/gallery/mondrian">
-          <img alt="Random Piet Mondrian" class="head-img" src="mondrian.png" />
-        </a>
-      </div>
-      <div class="inline-block">
-        <pre class="hide-on-small-screen"><code style="width: 33rem; height: 32rem;" class="language-lisp">
-(in-package #:calm)
-
-;; white, red, yellow, blue
-(defparameter *mondrian-color-list* '((0.93 0.92 0.94) (0.89 0.12 0.17) (0.94 0.87 0.47) (0 0.35 0.59)))
-
-(defun draw-rect (x y w h &optional color)
-  (c:set-source-rgb 0 0 0)
-  (c:rectangle x y w h)
-  (c:stroke-preserve)
-  (apply #'c:set-source-rgb (nth (if color (1+ (random 3)) 0) *mondrian-color-list*))
-  (c:fill-path))
-
-(defun draw ()
-  (c:set-line-width 20)
-  (loop with x = 0
-        for width = (+ 42 (random 300))
-        until (> x *calm-width*)
-        do (loop with y = 0
-                 for height = (+ 42 (random 300))
-                 until (> y *calm-height*)
-                 do (draw-rect x y width height (= (random 3) 0))
-                 do (incf y height))
-        do (incf x width)))
-        </code></pre>
-      </div>
-    </div>
-
-    <section>
-      <h2>A Lisp image pre-bundled with <a href="https://libsdl.org/">SDL</a> and <a href="https://cairographics.org/">Cairo</a>.</h2>
-      <p>With CALM, you have:
-        <ul>
-          <li>a cross-platform access to audio, keyboard, mouse, joystick, and graphics hardware</li>
-          <li>a 2D graphics library for you to draw anything to your screen</li>
-          <li>a Lisp code running environment</li>
-        </ul>
-        you can:
-        <ul>
-          <li>build a game</li>
-          <li>generate a 2D canvas art</li>
-          <li>make a cross-platform application</li>
-          <li>write once, run anywhere (LOL)</li>
-          <li>...</li>
-        </ul>
-        and <b>prevent</b> non-wizard users to:
-        <ul>
-          <li>install dependencies via the scary black terminals</li>
-          <li>install Lisp implemetations</li>
-          <li>read a long manual to get your Lisp based software working</li>
-        </ul>
-      </p>
-    </section>
-
-    <section id="releases">
-      <h2>Downloads</h2>
-      <p class="releases">
-        <a href="https://github.com/calm2d/calm/releases/latest/download/calm-lnx.7z">Linux</a>
-        <a href="https://github.com/calm2d/calm/releases/latest/download/calm-mac.7z">macOS</a>
-        <a href="https://github.com/calm2d/calm/releases/latest/download/calm-win.7z">Windows</a>
-      </p>
-    </section>
-
-    <section>
-      <h2>Then What?</h2>
-      <p class="next">
-        <a href="/guide">Read the Guide</a> or <a href="https://github.com/calm2d/calm/tree/main/src/gallery/">Browse the Gallery</a>
-      </p>
-    </section>
-
-
-
-    <footer>
-      <p>
-        The content of this site is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a>.
-      </p>
-
-      <p>CALM is <a href="https://www.fsf.org/licensing/essays/free-sw.html">free software</a> and is available to be redistributed and/or modified under the terms of the <a href="http://mozilla.org/MPL/2.0/">Mozilla Public License (MPL)</a>. </p>
-
-      <p style="float:right;">&copy; 2022 calm2d.org</p>
-    </footer>
-
-    <script>hljs.highlightAll();</script>
+    
+    <center>
+      <h1>Not yet ready, please check this:</h1>
+      <h1><a href="https://github.com/VitoVan/calm">https://github.com/VitoVan/calm</a></h1>
+    </center>
   </body>
 
 </html>
